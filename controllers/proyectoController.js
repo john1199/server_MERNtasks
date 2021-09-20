@@ -9,7 +9,7 @@ exports.crearProyecto = async (req, res) => {
   try {
     const proyecto = new Proyecto(req.body);
     proyecto.creador = req.user.id;
-    proyecto.save();
+    await proyecto.save();
     res.status(200).json({ msg: "Proyecto creado correctamente", proyecto });
   } catch (error) {
     console.log(error);
