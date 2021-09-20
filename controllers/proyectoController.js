@@ -77,7 +77,7 @@ exports.eliminarProyecto = async (req, res) => {
     const deleteProyecto = await Proyecto.findOneAndRemove({ _id: id });
     res.status(200).json({
       msg: "Proyecto eliminado correctamente",
-      deleteProyecto,
+      id: deleteProyecto.id,
     });
   } catch (error) {
     console.log(error);
