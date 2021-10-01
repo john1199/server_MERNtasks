@@ -81,7 +81,7 @@ exports.eliminarProyecto = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ msg: "Error al actualizar proyecto", error });
+    res.status(500).json({ msg: "Error al eliminar proyecto", error });
   }
 };
 

@@ -39,5 +39,17 @@ exports.autenticarUser = async (req, res) => {
     );
   } catch (error) {
     console.log(error);
+    res.status(500).json({ msg: "Hubo un error" });
   }
 };
+
+exports.userAutenticado = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select("-password");
+    res.json({ user });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: "Hubo un error" });
+  }
+};
+  
