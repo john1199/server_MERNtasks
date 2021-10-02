@@ -1,9 +1,13 @@
 const mongoose = require("mongoose");
-require("dotenv").config({ path: "variables.env" });
-
+require("dotenv").config();
+ 
+const USER = process.env.USER_DB;
+const PASS = process.env.PASSWORD;
+const NAME = process.env.NAME_DB;
+const URI = `mongodb+srv://${USER}:${PASS}@cluster0.rktjy.mongodb.net/${NAME}?retryWrites=true&w=majority`;
 const conectarDB = async () => {
   try {
-    await mongoose.connect("mongodb://localhost/MERNTasksDB", {
+    await mongoose.connect(URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
